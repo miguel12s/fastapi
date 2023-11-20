@@ -30,7 +30,7 @@ origins = [
     #"http://localhost.tiangolo.com",
     #"https://localhost.tiangolo.com",
     # "http://localhost"
-    "https://angular-6pg9-production.up.railway.app",
+    "https://angular-6pg9-production.up.railway.app"
 ]
 
 app.add_middleware(
@@ -39,6 +39,8 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_credentials=True,
+    expose_headers=["*"],
 )
 app.include_router(campoxusuario)
 
