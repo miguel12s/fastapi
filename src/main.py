@@ -30,7 +30,7 @@ origins = [
     #"http://localhost.tiangolo.com",
     #"https://localhost.tiangolo.com",
     # "http://localhost"
-    "https://angular-6pg9-production.up.railway.app"
+    "https://angular-production-69eb.up.railway.app/"
 ]
 
 app.add_middleware(
