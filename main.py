@@ -30,15 +30,19 @@ origins = [
     #"http://localhost.tiangolo.com",
     #"https://localhost.tiangolo.com",
     # "http://localhost"
-    "http://localhost:4200",
+    "https://angular-production-69eb.up.railway.app",
+    "http://angular-production-69eb.up.railway.app",
+    "angular-production-69eb.up.railway.app",
 ]
+
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 app.include_router(campoxusuario)
 
