@@ -26,8 +26,8 @@ class ModelUser:
         try:
             conn = get_db_connection()
             cursor = conn.cursor()
-            sql="insert into lista_estudiantes (id_tutoria,id_usuario) values (%s,%s)"
-            cursor.execute(sql,(id_tutoria,id_usuario,))
+            sql="insert into lista_estudiantes (id_tutoria,id_usuario,asistencia) values (%s,%s,%s)"
+            cursor.execute(sql,(id_tutoria,id_usuario,0))
             conn.commit()
             conn.close()
             return {"message":"la tutoria ha sido agendada con exito"}
