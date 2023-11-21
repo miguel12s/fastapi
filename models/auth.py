@@ -59,7 +59,7 @@ class ModelAuth():
                 "to_email": notification.correo
 
                 }
-             response=requests.post('http://127.0.0.1:8300/send-email',json=email_data)
+             response=requests.post('https://fastapi-production-adfd.up.railway.app/send-email',json=email_data)
              print(response)
 
     def get_password_hash(credentials:LoginRequest):

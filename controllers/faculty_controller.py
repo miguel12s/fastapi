@@ -159,16 +159,15 @@ class FacultyController:
             conn = get_db_connection()
             cursor = conn.cursor()
             cursor.execute(
-                """SELECT  fpx.id_fpxusuario,concat(u.nombres,' ',u.apellidos),u.id_usuario as nombre_completo FROM `fpxusuario` fpx 
+                """select  fpx.id_fpxusuario,concat(u.nombres,' ',u.apellidos) as nombre_completo,u.id_usuario from fpxusuario fpx 
 join facultadxprograma fxp on fxp.id_fxp=fpx.id_fxp
 join facultades f on f.id_facultad=fxp.id_facultad
 join programas p on fxp.id_programa=p.id_programa
 join usuarios u on fpx.id_usuario=u.id_usuario
-group by u.id_usuario
-    """)
+group by u.id_usuario,fpx.id_fpxusuario""")
             # group by u.id_usuario
             result = cursor.fetchall()
-           
+            print(result)
             payload = []
             content = {}
             for data in result:
@@ -187,6 +186,7 @@ group by u.id_usuario
                 
 
         except mysql.connector.Error as err:
+            print(err)
             conn.rollback()
         finally:
             conn.close()

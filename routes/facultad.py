@@ -51,6 +51,7 @@ def facultadUserDocente(id_usuario):
 @facultad.get('/facultad-users')
 
 def getFacultadUser():
+   print('entras por aca')
    rpta=nueva_facultad.getFacultadUser()
    return rpta
 

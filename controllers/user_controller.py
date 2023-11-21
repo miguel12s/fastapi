@@ -248,7 +248,7 @@ join tipoxestado txe on txe.estado=%s
         try:
             conn = get_db_connection()
             cursor = conn.cursor()
-            cursor.execute("SELECT distinct  u.id_usuario,u.nombres,u.apellidos,t.tipo_documento,  u.numero_documento,f.facultad,p.programa,u.celular,u.foto,u.correo,u.contraseña FROM `usuarios` u  join tipos_documento t on u.id_tipo_documento=t.id_tipo_documento join fpxusuario facusu on facusu.id_usuario=u.id_usuario     join facultadxprograma fxp on fxp.id_fxp=facusu.id_fxp join facultades f on f.id_facultad=fxp.id_facultad join programas p on p.id_programa=fxp.id_programa where u.id_rol=2 and u.id_estado=4 group by u.id_usuario ")
+            cursor.execute("SELECT distinct  u.id_usuario,u.nombres,u.apellidos,t.tipo_documento,  u.numero_documento,f.facultad,p.programa,u.celular,u.foto,u.correo,u.contraseña FROM `usuarios` u  join tipos_documento t on u.id_tipo_documento=t.id_tipo_documento join fpxusuario facusu on facusu.id_usuario=u.id_usuario     join facultadxprograma fxp on fxp.id_fxp=facusu.id_fxp join facultades f on f.id_facultad=fxp.id_facultad join programas p on p.id_programa=fxp.id_programa where u.id_rol=2 and u.id_estado=4")
             
             result = cursor.fetchall()
             print(result)
