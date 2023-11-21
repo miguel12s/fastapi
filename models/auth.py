@@ -50,7 +50,7 @@ class ModelAuth():
                 "to_email": email
 
                 }
-             response=requests.post('http://127.0.0.1:8300/send-email',json=email_data)
+             response=requests.post('https://fastapi-production-adfd.up.railway.app/send-email',json=email_data)
              print(response)
     def send_response(notification:Notification):
              email_data = {
