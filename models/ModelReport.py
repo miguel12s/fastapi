@@ -61,7 +61,6 @@ class ModelReport():
             WHERE ra.fecha_hora >= STR_TO_DATE(%s, '%Y-%m-%d')
             AND ra.fecha_hora <= STR_TO_DATE(%s, '%Y-%m-%d')
             GROUP BY u.numero_documento;""", (fecha_inicio_api, fecha_final_api))
-        print(result)
         result = cursor.fetchall()
         print(result)
         payload = []
