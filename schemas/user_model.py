@@ -21,7 +21,7 @@ class updateUser(BaseModel):
     apellidos: str
     tipo_documento:str
     numero_documento:int
-    celular: int
+    celular: str
     facultad:str
     programa:str
     correo:EmailStr

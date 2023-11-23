@@ -48,7 +48,7 @@ async def updateUserf(id_user):
 
 @router.put('/{id_user}')
 
-async def updatefUser(user:updateUser,id_user):
+async def updatefUser(user:updateUser,id_user:int):
     rpta=nuevo_usuario.update_user(user,id_user)
     return rpta
 

@@ -59,7 +59,9 @@ class ModelReport():
             JOIN facultades f ON f.id_facultad = fxp.id_facultad
             JOIN programas p ON p.id_programa = fxp.id_programa
             WHERE ra.fecha_hora >= STR_TO_DATE(%s, '%Y-%m-%d')
-            AND ra.fecha_hora <= STR_TO_DATE(%s, '%Y-%m-%d');
+            AND ra.fecha_hora <= STR_TO_DATE(%s, '%Y-%m-%d')
+              group by u.id_usuario         
+                       ;
         """, (fecha_inicio_api, fecha_final_api))
 
         result = cursor.fetchall()
