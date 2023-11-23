@@ -15,7 +15,7 @@ class AdminController:
                 "INSERT INTO contact (nombres,apellidos,correo,celular,mensaje) VALUES (%s,%s,%s,%s,%s)", (contactForm.nombre,contactForm.apellido,contactForm.correo,contactForm.celular,contactForm.mensaje))
             conn.commit()
             conn.close()
-            return {"resultado": "Notificacion  creada"}
+            return {"success": "Notificacion  creada"}
          except mysql.connector.Error as err:
             print(err)
             conn.rollback()

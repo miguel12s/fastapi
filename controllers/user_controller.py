@@ -55,7 +55,7 @@ values(%s,%s,%s,%s,%s,%s,%s,%s,%s)
             conn.commit()
             cursor.execute("""SELECT fxp.id_fxp FROM `facultadxprograma` fxp join facultades f on fxp.id_facultad=f.id_facultad join programas p on fxp.id_programa=p.id_programa
 
-where p.id_programa=%s and f.id_facultad=%s """,(user.id_programa,user.id_facultad))
+where p.id_programa=%s and f.id_facultad=%s""",(user.id_programa,user.id_facultad))
             id_fxp=cursor.fetchone()[0]
 
             cursor.execute('INSERT INTO `fpxusuario`(`id_fxp`, `id_usuario`) VALUES (%s,%s)',(id_fxp,id_user))
