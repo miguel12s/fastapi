@@ -60,8 +60,8 @@ class ModelReport():
             JOIN programas p ON p.id_programa = fxp.id_programa
             WHERE ra.fecha_hora >= STR_TO_DATE(%s, '%Y-%m-%d')
             AND ra.fecha_hora <= STR_TO_DATE(%s, '%Y-%m-%d')
-            group by u.numero_documento  ;""", (fecha_inicio_api, fecha_final_api))
-
+            GROUP BY u.numero_documento;""", (fecha_inicio_api, fecha_final_api))
+        print(result)
         result = cursor.fetchall()
         print(result)
         payload = []
