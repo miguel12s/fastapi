@@ -50,7 +50,7 @@ class ModelReport():
         print(fecha_inicio_api, fecha_final_api)
 
         cursor.execute("""
-            SELECT u.id_usuario, u.nombres, u.apellidos, u.numero_documento, td.tipo_documento, ra.fecha_hora, f.facultad, p.programa, u.celular, u.correo
+             SELECT u.id_usuario, u.nombres, u.apellidos, u.numero_documento, td.tipo_documento, ra.fecha_hora, f.facultad, p.programa, u.celular, u.correo
             FROM registro_actividad ra
             JOIN usuarios u ON u.id_usuario = ra.id_usuario
             JOIN tipos_documento td ON td.id_tipo_documento = u.id_tipo_documento
@@ -60,7 +60,7 @@ class ModelReport():
             JOIN programas p ON p.id_programa = fxp.id_programa
             WHERE ra.fecha_hora >= STR_TO_DATE(%s, '%Y-%m-%d')
             AND ra.fecha_hora <= STR_TO_DATE(%s, '%Y-%m-%d')
-            group by u.id_usuario ;""", (fecha_inicio_api, fecha_final_api))
+            group by u.numero_documento  ;""", (fecha_inicio_api, fecha_final_api))
 
         result = cursor.fetchall()
         print(result)
