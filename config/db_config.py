@@ -4,7 +4,7 @@ def get_db_connection():
     return mysql.connector.connect(
         host="roundhouse.proxy.rlwy.net",
         user="root",
-        password="cAgh-Cgc6CgHD1BBDbG6dD54feFGCH1d",
+        password="CF4B2EG1h1Hf3h-3E4d46Ef5a-e1dfb4",
         database="railway",
-        port="11673"
+        port="39493"
     )

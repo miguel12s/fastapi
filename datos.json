@@ -1,0 +1,9 @@
+{
+    "intents": [
+      {"tag": "saludo", "patterns": ["Hola", "¿Cómo estas?", "Saludos"], "responses": ["¡Hola!", "Hola, ¿en que puedo ayudarte?"]},
+      {"tag": "despedida", "patterns": ["Adios", "Hasta luego", "Chao"], "responses": ["¡Hasta luego!", "Adios, que tengas un buen dia."]},
+      {"tag": "trabajo", "patterns": ["¿En que laboras o trabjas?", "¿ejerces alguna labor?", "¿eres empleado?"], "responses": ["soy ingeniero de sistemas", "estoy laborando en el area de ingenieria especificamente en sistemas y computacion"]}
+      
+    ]
+  }
+  
