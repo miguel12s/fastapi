@@ -197,8 +197,14 @@ WHERE id_tutoria = %s
                 cursor.execute("update horario_tutorias ht set ht.id_estado_tutoria=%s  where id_tutoria=%s",(8,id,))
                 conn.commit()
                 cursor.execute('INSERT INTO `registro_actividad`( `id_tipo_actividad`, `id_usuario`, `fecha_hora`, `ubicacion_actividad`) VALUES (%s,%s,%s,%s) ',(2,id_user,fecha_formateada,'eliminar tutoria'))
+
                 conn.commit()
                 conn.close()
+                data=ModelUser.obtenerDatosUsuario(id_user)
+                listado=ModelUser.obtenerListado(id)
+                print(listado)
+                ModelUser.enviarCorreo(data,listado)
+                
                 return {"success":"horario deshabilitado"}
             except mysql.connector.Error as err:
                 print(err)
@@ -312,6 +318,10 @@ where txe.id_tipoxestado=6 and id_usuario=%s;""",(id,))
         try:
           rpta=ModelUser.cancelarTutoria(id_user,id_tutoria)
           ModelUser.recuperarCupos(id_tutoria)
+          data=ModelUser.obtenerDatosUsuario(id_user)
+          print(data)
+          listado=ModelUser.obtenerListado(id_tutoria)
+          print(listado)
           return rpta
         except Exception as e: 
             print(e)
