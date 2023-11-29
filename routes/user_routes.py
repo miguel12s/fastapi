@@ -1,4 +1,5 @@
 from fastapi import APIRouter,Request
+from chat.chatbot import procesar_mensaje
 # from chat.chatbot import procesar_mensaje
 from controllers.user_controller import *
 from schemas.Message import Message
@@ -79,11 +80,11 @@ def cambiarContraseña(changePassword:ChangePassword,request:Request):
     return rpta
 
 
-# @router.post('/send-response-chat')
+@router.post('/send-response-chat')
 
-# def sendResponseChat(message:Message):
-#     rpta=procesar_mensaje(message.message)
-#     return rpta
+def sendResponseChat(message:Message):
+    rpta=procesar_mensaje(message.message)
+    return rpta
 
     
 

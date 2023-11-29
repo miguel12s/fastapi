@@ -329,7 +329,6 @@ where txe.id_tipoxestado=6 and le.id_usuario=%s
         try:
             conn = get_db_connection()
             cursor = conn.cursor()
-            print(id_tutoria)
             cursor.execute(
                 """
                SELECT ht.id_tutoria,ht.id_usuario,concat(u.nombres," ",u.apellidos) as nombre_estudiante, le.id_usuario,txe.estado,m.materia,u.numero_documento,p.programa,le.asistencia,le.comentario,u.correo  FROM `horario_tutorias` ht 
@@ -367,7 +366,10 @@ where txe.id_tipoxestado=6 and le.id_usuario=%s
                 }
                 payload.append(content)
                 content={}
-            return payload
+            if payload:
+
+             return payload
+            return None
         except mysql.connector.Error as err:
             print(err)
             conn.rollback()
@@ -375,10 +377,7 @@ where txe.id_tipoxestado=6 and le.id_usuario=%s
             conn.close()
 
     def enviarCorreo(data,listado):
-            print(data)
-            print(listado)
             for i in listado:
-             print(i)
              email_data = {
                 "subject": "Tutoria cancelada",
                 "message": f"Estimado {i['nombre_estudiante']},\n\n la tutoria del docente {data['nombres']} con el tema {data['tema']} ha sido cancelada  Equipo de Administracion",
@@ -388,5 +387,4 @@ where txe.id_tipoxestado=6 and le.id_usuario=%s
              response=requests.post('http://127.0.0.1:8300/send-email',json=email_data)
             #  response=requests.post('https://fastapi-production-adfd.up.railway.app/send-email',json=email_data)
             
-             print(response)
             
