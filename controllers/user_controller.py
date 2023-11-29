@@ -222,6 +222,7 @@ join tipoxestado txe on txe.estado=%s
 
         for index, row in df.iterrows():
             user_data = row.to_dict()
+            print(user_data)
             data=user_data['rol;nombre;apellido;tipodocumento;numerodocumento;celular;correo;password;facultad;programa'].split(';')
             content={
                 "rol":data[0],
