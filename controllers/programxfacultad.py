@@ -61,11 +61,12 @@ SELECT fp.id_fxp,p.programa, f.facultad FROM `facultadxprograma` fp join faculta
             json_data=jsonable_encoder(payload)
             print(json_data)
 
-            if data:
+            if result:
                 return {"resultado":json_data}
             else:
-                raise HTTPException(
-                    status_code=404, detail="facultadxprograma not found")
+                return {"status":404}
+                # raise HTTPException(
+                #     status_code=404, detail="facultadxprograma not found")
 
         except mysql.connector.Error as err:
             conn.rollback()

@@ -98,7 +98,7 @@ class AdminController:
             conn.close()
             ModelAuth.send_response(response)
             
-            return {"error":"no existe ninguna notificacion "}
+            return {"success":"la respuesta ha sido enviada "}
          except mysql.connector.Error as err:
             print(err)
             conn.rollback()

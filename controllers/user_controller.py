@@ -50,12 +50,11 @@ values(%s,%s,%s,%s,%s,%s,%s,%s,%s)
             
             id_user=cursor.lastrowid
             conn.commit()
-
+            print(user.id_facultad,user.id_programa)
             cursor.execute('insert into camposxusuario (id_usuario,id_campo,dato) values(%s,%s,%s)',(id_user,1,str(user.id_programa)))
-            conn.commit()
-            cursor.execute("""SELECT fxp.id_fxp FROM `facultadxprograma` fxp join facultades f on fxp.id_facultad=f.id_facultad join programas p on fxp.id_programa=p.id_programa
-
-where p.id_programa=%s and f.id_facultad=%s""",(user.id_programa,user.id_facultad))
+            conn.commit() 
+            cursor.execute("""SELECT f.id_fxp FROM `facultadxprograma` f
+where f.id_programa=%s and f.id_facultad=%s""",(user.id_programa,user.id_facultad))
             id_fxp=cursor.fetchone()[0]
 
             cursor.execute('INSERT INTO `fpxusuario`(`id_fxp`, `id_usuario`) VALUES (%s,%s)',(id_fxp,id_user))

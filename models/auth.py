@@ -55,7 +55,7 @@ class ModelAuth():
     def send_response(notification:Notification):
              email_data = {
                 "subject": f"respuesta para {notification.nombre_completo} ",
-                "message": f"{notification.mensaje}",
+                "message": f"{notification.respuesta}",
                 "to_email": notification.correo
 
                 }
