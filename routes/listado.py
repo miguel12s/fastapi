@@ -41,11 +41,11 @@ async def deleteListado(id):
 
 @listado.put('/pasar-lista')
 
-async def pasarLista(request:Request,listado:List[ListadoEstudiante]):
+async def pasarLista(request:Request,listado:DatosRecibir):
     headers=request.headers
     payload=Security.verify_token(headers)
     user_id=payload['id_usuario']
-    print(user_id)
+    print(listado)
     rpta = nueva_listado.pasarLista(user_id,listado)
     return rpta
 

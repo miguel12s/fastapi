@@ -3,7 +3,7 @@ import mysql.connector
 from fastapi import HTTPException
 from config.db_config import get_db_connection
 from models.listado import ModelListado
-from schemas.ListadoEstudiante import ListadoEstudiante
+from schemas.ListadoEstudiante import ListadoEstudiante,DatosRecibir
 from fastapi.encoders import jsonable_encoder
 
 class ListadoController:
@@ -153,8 +153,9 @@ WHERE id_lista = %s
             finally:
                 conn.close()
             pass
-    def pasarLista(self,id_user:int,listado:List[ListadoEstudiante]):
+    def pasarLista(self,id_user:int,listado:DatosRecibir):
         try:
+          
           rpta=ModelListado.pasarLista(id_user,listado)
           ModelListado.actualizarEstadoTutoria(id_user,listado)
           return rpta

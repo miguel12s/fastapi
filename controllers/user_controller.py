@@ -73,7 +73,7 @@ where p.id_programa=%s and f.id_facultad=%s""",(user.id_programa,user.id_faculta
         except mysql.connector.Error as err:
             print(err)
             conn.rollback()
-            return {"error":err}
+            return {"error":err.sqlstate}
         finally:
             conn.close()
         

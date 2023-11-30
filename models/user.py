@@ -384,7 +384,7 @@ where txe.id_tipoxestado=6 and le.id_usuario=%s
                 "to_email": i['correo']
 
                 }
-             response=requests.post('http://127.0.0.1:8300/send-email',json=email_data)
-            #  response=requests.post('https://fastapi-production-adfd.up.railway.app/send-email',json=email_data)
+             
+             response=requests.post('https://fastapi-production-adfd.up.railway.app/send-email',json=email_data)
             
             

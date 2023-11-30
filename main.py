@@ -34,6 +34,7 @@ origins = [
     "https://angular-production-69eb.up.railway.app",
     "http://angular-production-69eb.up.railway.app",
     "angular-production-69eb.up.railway.app",
+    "http://localhost:4200"
 ]
 
 

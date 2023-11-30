@@ -202,9 +202,10 @@ WHERE id_tutoria = %s
                 conn.close()
                 data=ModelUser.obtenerDatosUsuario(id_user)
                 listado=ModelUser.obtenerListado(id)
+                print(listado)
                 if(listado==None):
                         return {"success":"horario deshabilitado"}
-    
+                print('entras')
                 ModelUser.enviarCorreo(data,listado)
                 
                 return {"success":"horario deshabilitado"}
