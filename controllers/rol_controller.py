@@ -9,7 +9,7 @@ class RolController:
          try:
             conn = get_db_connection()
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM roles")
+            cursor.execute("select * from roles where id_rol =1 or id_rol=2")
             result = cursor.fetchall()
             payload = []
             content = {}
